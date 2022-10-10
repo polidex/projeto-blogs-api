@@ -6,7 +6,7 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
-        primary: true,
+        primaryKey: true,
         allowNull: false,
       },
       title: {
@@ -18,8 +18,10 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
-          model: 'user',
+          model: 'users',
           key: 'id',
         }
       },
@@ -32,7 +34,7 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface, _Sequelize) => {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('blog_posts');
   }
 };
