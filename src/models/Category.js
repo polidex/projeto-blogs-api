@@ -5,7 +5,10 @@ const Category = (sequilize, DataTypes) => {
       primaryKey: true, 
     },
     name: DataTypes.STRING,
-  }, { tableName: 'categories' });
+  }, {
+    tableName: 'categories',
+    timestamps: false,
+});
 
   return Category;
 };

@@ -13,7 +13,10 @@ const BlogPost = (sequilize, DataTypes) => {
     },
     published: DataTypes.DATE,
     updated: DataTypes.DATE,
-  }, { tableName: 'blog_posts' });
+  }, {
+    tableName: 'blog_posts',
+    timestamps: false,
+  });
 
   BlogPost.associate = (model) => {
     BlogPost.belongsTo(model.User, {
