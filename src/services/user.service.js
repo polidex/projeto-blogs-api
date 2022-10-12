@@ -1,7 +1,7 @@
-const userModel = require('../models/user.model');
+const { User } = require('../models');
 
 const create = async (name) => {
-  const result = await userModel.create(name);
+  const result = await User.create(name);
   return result;
 };
 

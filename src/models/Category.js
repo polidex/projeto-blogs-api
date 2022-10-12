@@ -1,8 +1,11 @@
 const Category = (sequilize, DataTypes) => {
   const Category = sequilize.define('Category', {
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true, 
+    },
     name: DataTypes.STRING,
-  });
+  }, { tableName: 'categories' });
 
   return Category;
 };
