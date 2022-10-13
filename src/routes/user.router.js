@@ -5,6 +5,7 @@ const nameValidation = require('../middlewares/nameValidation');
 const passwordValidation = require('../middlewares/passwordValidation');
 const resgisterValidation = require('../middlewares/resgisterValidation');
 const tokenValidation = require('../middlewares/tokenValidation');
+const userExists = require('../middlewares/userExists');
 
 const userRouter = express.Router();
 
@@ -13,7 +14,7 @@ userRouter.get('/', tokenValidation, userController.read);
 userRouter.post('/', nameValidation, passwordValidation, emailValidation,
 resgisterValidation, userController.create);
 
-userRouter.get('/:id', userController.readById);
+userRouter.get('/:id', tokenValidation, userExists, userController.readById);
 
 userRouter.delete('/me', userController.deleteById);
 
