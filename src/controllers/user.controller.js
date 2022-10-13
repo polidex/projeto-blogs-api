@@ -22,7 +22,7 @@ const readById = async (req, res) => {
 };
 
 const deleteById = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.user;
 
   await userService.deleteById(id);
   return res.status(204).json('deletado');/* end(); */

@@ -16,6 +16,6 @@ resgisterValidation, userController.create);
 
 userRouter.get('/:id', tokenValidation, userExists, userController.readById);
 
-userRouter.delete('/me', userController.deleteById);
+userRouter.delete('/me', tokenValidation, userController.deleteById);
 
 module.exports = userRouter;
