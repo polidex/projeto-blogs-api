@@ -5,7 +5,7 @@ const emailValidation = (req, res, next) => {
   const validation = email.match(regex);
   
   if (!validation) {
-    res.status(400).json({ message: '"email" must be a valid email' });
+    return res.status(400).json({ message: '"email" must be a valid email' });
   }
   next();
 };
