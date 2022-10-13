@@ -7,7 +7,7 @@ const BlogPost = (sequilize, DataTypes) => {
     },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
-    user_id:{
+    userId:{
       type: DataTypes.INTEGER,
       foreignKey: true,
     },
@@ -16,6 +16,7 @@ const BlogPost = (sequilize, DataTypes) => {
   }, {
     tableName: 'blog_posts',
     timestamps: false,
+    underscored: true,
   });
 
   BlogPost.associate = (model) => {

@@ -4,7 +4,9 @@ const User = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true, 
     },
-    display_name: DataTypes.STRING,
+    displayName: {
+      type: DataTypes.STRING,
+    },
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     image: DataTypes.STRING,
@@ -12,6 +14,7 @@ const User = (sequelize, DataTypes) => {
   {
     tableName: 'users',
     timestamps: false,
+    underscored: true,
   });
 
   User.associate = (model) => {

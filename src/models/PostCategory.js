@@ -1,10 +1,11 @@
 const PostCategory = (sequilize, DataTypes) => {
   const PostCategory = sequilize.define('PostCategory', {
-    post_id: DataTypes.INTEGER,
-    category_id: DataTypes.INTEGER,
+    postId: DataTypes.INTEGER,
+    categoryId: DataTypes.INTEGER,
   }, {
     tableName: 'posts_categories',
     timestamps: false,
+    underscored: true,
   });
 
   PostCategory.associate = (models) => {

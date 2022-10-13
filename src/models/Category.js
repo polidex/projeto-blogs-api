@@ -8,6 +8,7 @@ const Category = (sequilize, DataTypes) => {
   }, {
     tableName: 'categories',
     timestamps: false,
+    underscored: true,
 });
 
   return Category;

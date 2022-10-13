@@ -13,8 +13,9 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      display_name: {
+      displayName: {
         type: Sequelize.STRING,
+        field: 'display_name',
       },
       email: {
         type: Sequelize.STRING,

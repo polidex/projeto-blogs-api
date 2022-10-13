@@ -6,9 +6,10 @@ const tokenValidation = (req, res, next) => {
   if (!authorization) return res.status(401).json({ message: 'Token not found' });
 
   try {
-    untokenize(authorization);
+    const result = untokenize(authorization);
+    req.user = result.dataValues;
   } catch (err) {
-    return res.status(401).json('Expired or invalid token');
+    return res.status(401).json({ message: 'Expired or invalid token' });
   }
   next();
 };
