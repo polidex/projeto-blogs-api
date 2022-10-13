@@ -5,6 +5,12 @@ const create = async (email) => {
   return result;
 };
 
+const read = async () => {
+  const result = await User.findAll();
+  return result;
+};
+
 module.exports = {
   create,
+  read,
 };

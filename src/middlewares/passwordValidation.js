@@ -1,4 +1,4 @@
-const passwordValidation = (req, res,next) => {
+const passwordValidation = (req, res, next) => {
   const { password } = req.body;
 
   if (password.length < 6) {

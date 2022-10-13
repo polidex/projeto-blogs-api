@@ -4,10 +4,13 @@ const emailValidation = require('../middlewares/emailValidation');
 const nameValidation = require('../middlewares/nameValidation');
 const passwordValidation = require('../middlewares/passwordValidation');
 const resgisterValidation = require('../middlewares/resgisterValidation');
+const tokenValidation = require('../middlewares/tokenValidation');
 
 const userRouter = express.Router();
 
 userRouter.post('/', nameValidation, passwordValidation, emailValidation,
 resgisterValidation, userController.create);
+
+userRouter.get('/', tokenValidation, userController.read);
 
 module.exports = userRouter;
