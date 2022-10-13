@@ -1,10 +1,12 @@
 const userService = require('../services/user.service');
+const { tokenize } = require('../utilities/tokenize');
 
 const create = async (req, res) => {
-  const { name } = req.body;
+  const { displayName, email, password, image } = req.body;
 
-  const result = await userService.create(name);
-  return res.status(201).json(result/* { token: 'padrão muito louco de caracteres' } */);
+  const result = await userService.create({ displayName, email, password, image });
+  const registerToken = tokenize(result);
+  return res.status(201).json({ token: registerToken });
 };
 
 module.exports = {
