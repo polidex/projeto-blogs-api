@@ -14,7 +14,23 @@ const read = async (_req, res) => {
   return res.status(200).json(result);
 };
 
+const readById = async (req, res) => {
+  const { id } = req.params;
+
+  const result = await userService.readById(id);
+  return res.status(200).json(result);
+};
+
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+
+  await userService.deleteById(id);
+  return res.status(204).json('deletado');/* end(); */
+};
+
 module.exports = {
   create,
   read,
+  readById,
+  deleteById,
 };
