@@ -1,4 +1,4 @@
-const { BlogPost, User, Category } = require('../models');
+const { BlogPost, User, Category/* , postCategory */ } = require('../models');
 
 const read = async () => {
   const result = await BlogPost.findAll({ attributes: { exclude: ['user_id'] },
@@ -21,7 +21,21 @@ const readById = async (id) => {
   return result;
 };
 
+// const createCategoryPost = async ({ postId, categoryIds }) => {
+//   const result = await Promise.all(categoryIds.map(async (id) => {
+//     await postCategory.create({ postId, categoryId: id });
+//   }));
+//   return result;
+// };
+
+const create = async (/* { id, title, content, categoryIds } */) => {
+  // const result = BlogPost.create({ title, content, userId: id });
+  // await createCategoryPost({ postId: result.id, categoryIds });
+  // return result;
+};
+
 module.exports = {
   read,
   readById,
+  create,
 };

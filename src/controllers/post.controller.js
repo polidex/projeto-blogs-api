@@ -12,7 +12,16 @@ const readById = async (req, res) => {
   return res.status(200).json(result);
 };
 
+const create = async (_req, res) => {
+  // const { id } = req.user;
+  // const { title, content, categoryIds } = req.body;
+  const result = 'endpoint funcionando!';
+  // const result = await postService.create({ id, title, content, categoryIds }); 
+  return res.status(201).json(result);
+};
+
 module.exports = {
   read,
   readById,
+  create,
 };

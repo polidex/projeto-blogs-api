@@ -19,7 +19,6 @@ app.use('/categories', categoriesRouter);
 
 app.use('/post', postRouter);
 
-
 // ...
 
 // É importante exportar a constante `app`,
