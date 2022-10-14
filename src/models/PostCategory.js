@@ -19,6 +19,7 @@ const PostCategory = (sequilize, DataTypes) => {
       through: PostCategory,
       foreignKey: 'post_id',
       otherKey: 'category_id',
+      as: 'categories',
     });
   }
 
