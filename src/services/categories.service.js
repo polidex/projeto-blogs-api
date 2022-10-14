@@ -5,6 +5,12 @@ const create = async (name) => {
   return result;
 };
 
+const read = async () => {
+  const result = await Category.findAll();
+  return result;
+};
+
 module.exports = {
   create,
+  read,
 };

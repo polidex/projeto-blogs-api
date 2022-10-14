@@ -5,6 +5,8 @@ const tokenValidation = require('../middlewares/tokenValidation');
 
 const categoriesRouter = express.Router();
 
+categoriesRouter.get('/', tokenValidation, categoriesController.read);
+
 categoriesRouter.post('/', tokenValidation, nameRequired, categoriesController.create);
 
 module.exports = categoriesRouter; 
