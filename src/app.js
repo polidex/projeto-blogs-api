@@ -1,9 +1,9 @@
 const express = require('express');
 const userRouter = require('./routes/user.router');
 const loginRouter = require('./routes/login.router');
+const postRouter = require('./routes/post.router');
 const requiredFields = require('./middlewares/requiredFields');
 const categoriesRouter = require('./routes/categories.router');
-// const errorMiddleware = require('./middlewares/errorMiddleware');
 
 // ...
 
@@ -17,7 +17,8 @@ app.use('/user', userRouter);
 
 app.use('/categories', categoriesRouter);
 
-// app.use(errorMiddleware);
+app.use('/post', postRouter);
+
 
 // ...
 

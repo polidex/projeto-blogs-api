@@ -7,7 +7,7 @@ const create = async (req, res) => {
   return res.status(201).json(result);
 }; 
 
-const read = async (req, res) => {
+const read = async (_req, res) => {
   const result = await categoriesService.read();
   return res.status(200).json(result);
 };
