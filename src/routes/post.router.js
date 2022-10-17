@@ -10,7 +10,8 @@ const searchByQueryValidation = require('../middlewares/searchByQueryValidation'
 
 const postRouter = express.Router();
 
-postRouter.get('/search', tokenValidation, searchByQueryValidation, postController.readByQuery);
+postRouter.get('/search', tokenValidation, searchByQueryValidation,
+postController.readByQuery);
 
 postRouter.get('/', tokenValidation, postController.read);
 
@@ -18,7 +19,7 @@ postRouter.get('/:id', postExists, tokenValidation, postController.readById);
 
 postRouter.post('/', tokenValidation, hasCategory, neededFields, postController.create);
 
-postRouter.put('/:id', tokenValidation, updateRequiredFields, userPostValidation,
+postRouter.put('/:id', tokenValidation, updateRequiredFields, /* userPostValidation, */
 postController.update);
 
 postRouter.delete('/:id', tokenValidation, /* userPostValidation,  */postExists,

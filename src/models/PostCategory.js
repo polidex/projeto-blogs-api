@@ -1,7 +1,16 @@
 const PostCategory = (sequilize, DataTypes) => {
   const PostCategory = sequilize.define('PostCategory', {
-    postId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER,
+    postId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: true,
+    },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: true,
+    },
+
   }, {
     tableName: 'posts_categories',
     timestamps: false,
