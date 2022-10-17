@@ -13,15 +13,25 @@ const readById = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  // const result = 'endpoint funcionando!';
-  const { id } = req.user;
+  const result = 'caminho feliz!';
+  /* const { id } = req.user;
   const { title, content, categoryIds } = req.body;
-  const result = await postService.create({ id, title, content, categoryIds }); 
+  const result = await postService.create({ id, title, content, categoryIds }); */
   return res.status(201).json(result);
+};
+
+const update = async (req, res) => {
+  const result = 'caminho feliz!';
+  /* const { id } = req.params;
+  const { title, content } = req.body;
+
+  const result = await postService.update({ id, title, content }); */
+  return res.status(200).json(result);
 };
 
 module.exports = {
   read,
   readById,
   create,
+  update,
 };
