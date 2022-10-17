@@ -36,10 +36,18 @@ const deleteById = async (req, res) => {
   return res.status(204).end();
 };
 
+const readByQuery = async (req, res) => {
+  const { q } = req.query;
+
+  const result = await postService.readByQuery(q);
+  return res.status(200).json(result);
+};
+
 module.exports = {
   read,
   readById,
   create,
   update,
   deleteById,
+  readByQuery,
 };
