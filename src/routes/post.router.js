@@ -4,7 +4,7 @@ const tokenValidation = require('../middlewares/tokenValidation');
 const postExists = require('../middlewares/postExists');
 const hasCategory = require('../middlewares/hasCategory');
 const neededFields = require('../middlewares/neededFields');
-// const userPostValidation = require('../middlewares/userPostValidation');
+const userPostValidation = require('../middlewares/userPostValidation');
 const updateRequiredFields = require('../middlewares/updateRequiredFields');
 const searchByQueryValidation = require('../middlewares/searchByQueryValidation');
 
@@ -19,10 +19,10 @@ postRouter.get('/:id', postExists, tokenValidation, postController.readById);
 
 postRouter.post('/', tokenValidation, hasCategory, neededFields, postController.create);
 
-postRouter.put('/:id', tokenValidation, updateRequiredFields, /* userPostValidation, */
+postRouter.put('/:id', tokenValidation, updateRequiredFields, userPostValidation,
 postController.update);
 
-postRouter.delete('/:id', tokenValidation, /* userPostValidation,  */postExists,
+postRouter.delete('/:id', tokenValidation, postExists, userPostValidation,
 postController.deleteById);
 
 module.exports = postRouter;

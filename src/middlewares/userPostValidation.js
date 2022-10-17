@@ -10,12 +10,10 @@ const userPostValidation = async (req, res, next) => {
   const user = await untokenize(authorization);
   console.log('---------this is result of user------>', user.dataValues.id);
 
-  if (post.user.dataValues.id !== user.id) {
+  if (post.user.dataValues.id !== user.dataValues.id) {
     return res.status(401).json({ message: 'Unauthorized user' });
   }
   next();
 };
 
 module.exports = userPostValidation;
-
-// [ blog api ] requisito 15 e 16 - acredito que seja a msm validação quebrando nas duas - sala 

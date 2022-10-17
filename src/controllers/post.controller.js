@@ -13,10 +13,9 @@ const readById = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  // const result = 'caminho feliz!';
   const { id } = req.user;
-  console.log('-------------->', id); 
   const { title, content, categoryIds } = req.body;
+  
   const result = await postService.create(id, title, content, categoryIds);
   return res.status(201).json(result);
 };
